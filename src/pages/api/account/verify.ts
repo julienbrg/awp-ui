@@ -31,7 +31,9 @@ export default withSessionRoute(async function handler(req: NextApiRequest, res:
       if (fields.nonce !== req.session.nonce) return res.status(422).json({ message: 'Invalid nonce.' })
 
       const isNftOwner = await verifyNftOwnership(message.address)
+
       if (!isNftOwner) return res.status(422).json({ message: 'Could not verify the NFT ownership.' })
+
       let secretContent
       if (isNftOwner) {
         secretContent = await decrypt('hello')
@@ -41,7 +43,7 @@ export default withSessionRoute(async function handler(req: NextApiRequest, res:
 
       const responseObj = {
         ok: true,
-        secretContent: secretContent, // Add the additional string here
+        secretContent: secretContent,
       }
 
       req.session.siwe = fields

@@ -96,7 +96,6 @@ export default function Home() {
       <Head />
 
       <main>
-        {/* <Heading as="h2">Basic Minter</Heading> */}
         {isDisconnected ? (
           <>
             <br />
