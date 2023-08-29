@@ -81,7 +81,7 @@ export default function Home() {
           description: "You can't mint this one twice.",
           status: 'error',
           variant: 'subtle',
-          duration: 1000,
+          duration: 5000,
           isClosable: true,
         })
       }
