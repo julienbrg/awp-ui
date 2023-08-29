@@ -38,10 +38,16 @@ export default withSessionRoute(async function handler(req: NextApiRequest, res:
       } else {
         secretContent = 'oh!'
       }
-      // TODO: write the decrypted message in the response
+
+      const responseObj = {
+        ok: true,
+        secretContent: secretContent, // Add the additional string here
+      }
+
       req.session.siwe = fields
       await req.session.save()
-      return res.json({ ok: true })
+      console.log('res:', res)
+      return res.json(responseObj)
     } catch (ex) {
       console.error(ex)
       return res.json({ ok: false })

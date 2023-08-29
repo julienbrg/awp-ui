@@ -86,7 +86,13 @@ export default function Home() {
 
       console.log('success ✅')
       setLoggedInAddress(address)
-      setSecretContent('https://bafybeiebgibloauyw6jynmbma2jrfaykqgvcd2p4gxbgm5pyjzvainndw4.ipfs.w3s.link/old-book.png')
+      const data = await verifyRes.json()
+      if (data.ok) {
+        setSecretContent(data.secretContent)
+        console.log(data.secretContent)
+      } else {
+        console.log('Something went wrong with that API request.')
+      }
       toast({
         title: 'Verified ✅',
         position: 'bottom',
