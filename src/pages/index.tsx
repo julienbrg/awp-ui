@@ -33,18 +33,23 @@ export default function Home() {
   useEffect(() => {
     const val = Number(bal?.formatted).toFixed(3)
     setUserBal(String(val) + ' ' + bal?.symbol)
-    const verifOneTime = verifyNftOwnership(address)
-    if (verifOneTime) {
-      router.push('/access')
-    }
-  }, [bal?.formatted, bal?.symbol, address, router])
+    // const verifOneTime = verifyNftOwnership(address)
+    // console.log('verifOneTime', verifOneTime)
+
+    // if (verifOneTime) {
+    //   router.push('/access')
+    // }
+  }, [bal?.formatted, bal?.symbol, address])
 
   const verifyNftOwnership = async (addr) => {
     const provider = new ethers.providers.JsonRpcProvider('https://rpc-test.arthera.net')
     const nft = new ethers.Contract(NFT_CONTRACT_ADDRESS, NFT_CONTRACT_ABI, provider)
     const nftBal = await nft.balanceOf(addr)
+    console.log('nftBal', nftBal)
     if (Number(nftBal) > 0) {
       return true
+    } else {
+      return false
     }
   }
 
@@ -107,8 +112,10 @@ export default function Home() {
             <br />
             <p>
               You&apos;re connected to <strong>Arthera Testnet</strong> and your wallet currently holds
-              <strong> {userBal}</strong>. You can go ahead and click on the &apos;Mint&apos; button below:{' '}
+              <strong> {userBal}</strong>.
             </p>
+            <br />
+            <p>You can go ahead and click on the &apos;Mint&apos; button below: </p>
             <br />
 
             {!loading ? (
