@@ -51,27 +51,23 @@ export default function Home() {
       const chainId = network.chain?.id
       if (!address || !chainId) return
 
-      // 1. Get random nonce from API
       const nonceRes = await fetch('/api/account/nonce')
       const nonce = await nonceRes.text()
 
-      // 2. Create SIWE message with pre-fetched nonce and sign with wallet
       const message = new SiweMessage({
         domain: window.location.host,
         address,
-        statement: `Sign in with Ethereum to W3HC.`,
+        statement: `Sign this message to prove you're the owner of Arthera Whitepaper NFT.`,
         uri: window.location.origin,
         version: '1',
         chainId,
         nonce: nonce,
       })
 
-      // 3. Sign message
       const signature = await signMessageAsync({
         message: message.prepareMessage(),
       })
 
-      // 3. Verify signature
       const verifyRes = await fetch('/api/account/verify', {
         method: 'POST',
         headers: {
@@ -114,33 +110,6 @@ export default function Home() {
         isClosable: true,
       })
       setLoggedInAddress('')
-    }
-  }
-
-  const check = async () => {
-    console.log('minting...')
-    try {
-      try {
-        const res = await fetch(`https://jsonplaceholder.typicode.com/posts/1`)
-        const data = await res.json()
-        console.log(data)
-      } catch (err) {
-        console.log(err)
-      }
-      console.log('Checked. ✅')
-      toast({
-        title: 'Checked. ✅',
-        position: 'bottom',
-        description: 'You have the Whitepaper NFT on your wallet!',
-        status: 'success',
-        variant: 'subtle',
-        duration: 500,
-        isClosable: true,
-      })
-      router.push('/access')
-    } catch (e) {
-      setLoading(false)
-      console.log('error:', e)
     }
   }
 

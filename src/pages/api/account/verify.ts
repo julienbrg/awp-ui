@@ -17,11 +17,6 @@ export default withSessionRoute(async function handler(req: NextApiRequest, res:
     }
   }
 
-  const decrypt = async (msg) => {
-    // TODO: process.env.NEXT_PUBLIC_SECRET
-    return 'https://bafybeiebgibloauyw6jynmbma2jrfaykqgvcd2p4gxbgm5pyjzvainndw4.ipfs.w3s.link/old-book.png'
-  }
-
   if (req.method === 'POST') {
     try {
       const { message, signature } = req.body
@@ -34,12 +29,8 @@ export default withSessionRoute(async function handler(req: NextApiRequest, res:
 
       if (!isNftOwner) return res.status(422).json({ message: 'Could not verify the NFT ownership.' })
 
-      let secretContent
-      if (isNftOwner) {
-        secretContent = await decrypt('hello')
-      } else {
-        secretContent = 'oh!'
-      }
+      console.log('process.env.NEXT_PUBLIC_SECRET:', process.env.NEXT_PUBLIC_SECRET)
+      const secretContent = isNftOwner ? process.env.NEXT_PUBLIC_SECRET : 'oh!'
 
       const responseObj = {
         ok: true,
