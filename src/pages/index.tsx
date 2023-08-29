@@ -81,7 +81,7 @@ export default function Home() {
           description: "You can't mint this one twice.",
           status: 'error',
           variant: 'subtle',
-          duration: 1000,
+          duration: 5000,
           isClosable: true,
         })
       }
@@ -96,7 +96,6 @@ export default function Home() {
       <Head />
 
       <main>
-        {/* <Heading as="h2">Basic Minter</Heading> */}
         {isDisconnected ? (
           <>
             <br />
