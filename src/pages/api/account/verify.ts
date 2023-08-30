@@ -29,7 +29,6 @@ export default withSessionRoute(async function handler(req: NextApiRequest, res:
 
       if (!isNftOwner) return res.status(422).json({ message: 'Could not verify the NFT ownership.' })
 
-      console.log('process.env.NEXT_PUBLIC_SECRET:', process.env.NEXT_PUBLIC_SECRET)
       const secretContent = isNftOwner ? process.env.NEXT_PUBLIC_SECRET : 'oh!'
 
       const responseObj = {

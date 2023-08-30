@@ -76,11 +76,8 @@ export default function Home() {
         body: JSON.stringify({ message, signature }),
       })
 
-      console.log('response', verifyRes)
-
       if (!verifyRes.ok) throw new Error('Error verifying message')
 
-      console.log('success ✅')
       setLoggedInAddress(address)
       const data = await verifyRes.json()
       if (data.ok) {
@@ -92,7 +89,7 @@ export default function Home() {
       toast({
         title: 'Verified ✅',
         position: 'bottom',
-        description: 'We were able to verify the Witepaper NFT ownership in the most formal way. Enjoy your read!',
+        description: 'Enjoy your read!',
         status: 'success',
         variant: 'subtle',
         duration: 10000,
