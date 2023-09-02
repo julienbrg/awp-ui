@@ -1,5 +1,7 @@
 # AWP UI
 
+Contract: https://github.com/w3hc/awp-contracts
+
 ## Install
 
 ```sh
