@@ -1,4 +1,4 @@
-import { Heading, Button, Image, useToast } from '@chakra-ui/react'
+import { Heading, Button, Image, useToast, Text } from '@chakra-ui/react'
 import { Head } from '../components/layout/Head'
 import { LinkComponent } from '../components/layout/LinkComponent'
 import { useRouter } from 'next/router'
@@ -78,12 +78,13 @@ export default function Home() {
         toast({
           title: 'Already minted',
           position: 'bottom',
-          description: "You can't mint this one twice.",
-          status: 'error',
+          description: "You can't mint this one twice. You can go ahead and click on the 'Reveal' button.",
+          status: 'info',
           variant: 'subtle',
           duration: 5000,
           isClosable: true,
         })
+        router.push('/access')
       }
 
       setLoading(false)
@@ -105,7 +106,41 @@ export default function Home() {
           <>
             <br />
 
-            <p>
+            <Text fontSize="20px" mb={3}>
+              We are excited to announce that Web3 is entering a new era!{' '}
+            </Text>
+            <Text fontSize="20px" mb={3}>
+              The world of decentralized technologies and blockchain is rapidly evolving, bringing forth groundbreaking opportunities and innovations.{' '}
+            </Text>
+
+            <Text fontSize="20px" mb={3}>
+              At this pivotal moment, we are thrilled to introduce Arthera, a pioneering project that is set to revolutionize the way we interact with
+              digital assets and the entire Web3 ecosystem.{' '}
+            </Text>
+
+            <Text fontSize="20px" mb={3}>
+              Arthera is proud to present its highly anticipated white paper, which outlines our vision, mission, and the transformative impact we aim
+              to make. By minting the Arthera white paper, we invite you to embark on a journey of exploration, understanding, and collaboration as we
+              shape the future of Web3 together.{' '}
+            </Text>
+
+            <Text fontSize="20px" mb={3}>
+              Within the pages of the Arthera white paper, you will discover the intricacies of our cutting-edge technology, the principles guiding
+              our project, and the immense potential it holds for individuals and businesses alike. We delve into the novel concepts, methodologies,
+              and frameworks that underpin Arthera, providing a comprehensive overview of our innovative approach.
+            </Text>
+
+            <Text fontSize="20px" mb={3}>
+              As you dive into the Arthera white paper, you will gain insights into how Arthera contributes to the Web3 ecosystem.{' '}
+            </Text>
+
+            <Text fontSize="20px" mb={3}>
+              We invite you to join us on this exciting journey as we embark on a new era in Web3. Together, we can shape the future of decentralized
+              technologies and build a more equitable and connected world. So, grab a cup of coffee, settle in, and immerse yourself in the Arthera
+              white paper, where the future of Web3 awaits.
+            </Text>
+            <br />
+            {/* <p>
               We&apos;re living pretty exciting times. <LinkComponent href="/access">Discover Atrthera Whitepaper right now!</LinkComponent>
             </p>
             <br />
@@ -115,7 +150,7 @@ export default function Home() {
             </p>
             <br />
             <p>You can go ahead and click on the &apos;Mint&apos; button below: </p>
-            <br />
+            <br /> */}
 
             {!loading ? (
               !txLink ? (
