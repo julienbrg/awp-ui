@@ -33,7 +33,6 @@ export default function Home() {
   useEffect(() => {
     const val = Number(bal?.formatted).toFixed(3)
     setUserBal(String(val) + ' ' + bal?.symbol)
-    console.log('bal.formatted', bal.formatted)
 
     // const verifOneTime = verifyNftOwnership(address)
     // console.log('verifOneTime', verifOneTime)
