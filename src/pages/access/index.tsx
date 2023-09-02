@@ -1,4 +1,4 @@
-import { Heading, Button, Image, useToast } from '@chakra-ui/react'
+import { Heading, Button, Image, useToast, Text, Box } from '@chakra-ui/react'
 import { Head } from '../../components/layout/Head'
 import { LinkComponent } from '../../components/layout/LinkComponent'
 import { useRouter } from 'next/router'
@@ -7,6 +7,12 @@ import { useFeeData, useSigner, useAccount, useBalance, useNetwork, useSignMessa
 import { ethers } from 'ethers'
 import { NFT_CONTRACT_ADDRESS, NFT_CONTRACT_ABI } from '../../lib/consts'
 import { SiweMessage } from 'siwe'
+import { chakra } from '@chakra-ui/react'
+import { motion, isValidMotionProp } from 'framer-motion'
+
+const ChakraBox = chakra(motion.div, {
+  shouldForwardProp: isValidMotionProp,
+})
 
 export default function Home() {
   const [loading, setLoading] = useState<boolean>(false)
@@ -82,14 +88,14 @@ export default function Home() {
       const data = await verifyRes.json()
       if (data.ok) {
         setSecretContent(data.secretContent)
-        console.log(data.secretContent)
+        // console.log(data.secretContent)
       } else {
         console.log('Something went wrong with that API request.')
       }
       toast({
         title: 'Verified ✅',
-        position: 'bottom',
-        description: 'Enjoy your read!',
+        position: 'top',
+        description: 'We managed to authenticate the Witepaper NFT ownership in the most official manner. Dive in and savor your reading!',
         status: 'success',
         variant: 'subtle',
         duration: 10000,
@@ -110,16 +116,46 @@ export default function Home() {
     }
   }
 
+  const download = () => {
+    setLoading(true)
+    const link = document.createElement('a')
+    link.href = secretContent
+    link.download = 'arthera-whitepaper.pdf'
+    link.target = '_blank'
+    link.click()
+    setLoading(false)
+  }
+
   return (
     <>
       <Head />
       <main>
-        <Heading as="h2">NFT-gated content</Heading>
+        {/* <Heading as="h2">NFT-gated content</Heading> */}
         <br />
 
         {loggedInAddress ? (
           <>
-            <Image alt="old-book" src={secretContent} />
+            {/* <Image alt="whitepaper" src={secretContent} /> */}
+            <Box width="100%" height="100vh" display="flex" justifyContent="center" alignItems="center">
+              <iframe src={secretContent} title="pdf" width="100%" height="100%"></iframe>
+            </Box>
+            <br />
+            {/* {!loading ? (
+              !txLink ? (
+                <Button colorScheme="blue" variant="outline" onClick={download}>
+                  Download
+                </Button>
+              ) : (
+                <Button disabled colorScheme="blue" variant="outline" onClick={download}>
+                  Download
+                </Button>
+              )
+            ) : (
+              <Button isLoading colorScheme="blue" loadingText="Downloading..." variant="outline">
+                Downloading...
+              </Button>
+            )} */}
+
             {/* <p>
               <b>
                 <LinkComponent href="/access">Download PDF</LinkComponent>
@@ -128,15 +164,17 @@ export default function Home() {
           </>
         ) : (
           <>
-            <p>If you&apos;re the owner of the Whitepaper NFT, please click on the &apos;Reveal&apos; button.</p>
+            <Text fontSize="20px" mb={3}>
+              If you&apos;re the owner of the Whitepaper NFT, please click on the &apos;Reveal&apos; button.
+            </Text>
             <br />
-            <p>
+            <Text fontSize="20px" mb={3}>
               Otherwise{' '}
               <LinkComponent href="/">
                 <b>you can go mint yours there</b>
               </LinkComponent>
               .
-            </p>
+            </Text>
             <br />
 
             {!loading ? (
