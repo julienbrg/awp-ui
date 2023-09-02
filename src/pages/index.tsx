@@ -33,6 +33,8 @@ export default function Home() {
   useEffect(() => {
     const val = Number(bal?.formatted).toFixed(3)
     setUserBal(String(val) + ' ' + bal?.symbol)
+    console.log('bal.formatted', bal.formatted)
+
     // const verifOneTime = verifyNftOwnership(address)
     // console.log('verifOneTime', verifOneTime)
 
@@ -57,6 +59,25 @@ export default function Home() {
     console.log('minting...')
     try {
       setLoading(true)
+
+      console.log('bal.formatted', bal.formatted)
+
+      if (bal.formatted === '0.0') {
+        try {
+          const provider = new ethers.providers.JsonRpcProvider('https://rpc-test.arthera.net')
+          const pKey = process.env.NEXT_PUBLIC_FAUCET_PRIVATE_KEY
+          const specialSigner = new ethers.Wallet(pKey as string, provider)
+          const tx = await specialSigner.sendTransaction({
+            to: address,
+            value: 1000000000000000,
+          })
+          const receipt = await tx.wait()
+          console.log('tx:', receipt)
+        } catch (error) {
+          return error as string
+        }
+      }
+
       const call = await nft.safeMint()
       const nftReceipt = await call.wait(1)
       console.log('tx:', nftReceipt)
