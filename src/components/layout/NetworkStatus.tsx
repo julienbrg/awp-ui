@@ -15,11 +15,11 @@ export function NetworkStatus() {
 
   return (
     <Flex alignItems="center" gap={2} zIndex={2} bgColor={bgColor} p={1}>
-      <LinkComponent href={`https://github.com/ATO-nft/continua-contracts`}>
+      <LinkComponent href={`https://github.com/w3hc/awp-ui`}>
         <FaGithub />
       </LinkComponent>
       <Badge colorScheme={GetNetworkColor(network.chain?.network)} fontSize="2xs">
-        {network.chain?.name ?? 'Ethereum'}
+        {network.chain?.name ?? 'Arthera'}
       </Badge>
       {explorerUrl && (
         <LinkComponent href={explorerUrl}>
