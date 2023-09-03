@@ -1,17 +1,17 @@
 import { ThemingProps } from '@chakra-ui/react'
 import { Chain } from '@wagmi/chains'
 
-export const SITE_NAME = 'Arthera Whitepaper'
-export const SITE_DESCRIPTION = 'A Web3 app boilerplate built with Next.js, Chakra UI, Ethers, Wagmi and ConnectKit'
-export const SITE_URL = 'https://w3hc.org'
+export const SITE_NAME = 'Arthera White Paper'
+export const SITE_DESCRIPTION = 'Web3 is entering a new era.'
+export const SITE_URL = 'https://whitepaper.arthera.net'
 export const THEME_INITIAL_COLOR = 'dark'
 export const THEME_COLOR_SCHEME: ThemingProps['colorScheme'] = 'gray'
 export const THEME_CONFIG = {
   initialColorMode: THEME_INITIAL_COLOR,
 }
 
-export const SOCIAL_TWITTER = 'W3HC'
-export const SOCIAL_GITHUB = 'w3hc/nexth'
+export const SOCIAL_TWITTER = 'artherachain'
+export const SOCIAL_GITHUB = 'artheranet'
 
 export const artheraTestnet: Chain = {
   id: 10243,
