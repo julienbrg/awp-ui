@@ -19,8 +19,8 @@ export function Seo() {
         url: origin,
         images: [
           {
-            url: `${origin}/og.png`,
-            alt: `${SITE_NAME} Open Graph Image`,
+            url: `https://bafybeidpfl2bdtt3xnedxdnxp7zmqb75gan2d45qiqlbbm5erdiiqyw5uq.ipfs.w3s.link/Arthera-White-Paper-NFT.png`,
+            alt: `arthera-wp-image`,
           },
         ],
       }}

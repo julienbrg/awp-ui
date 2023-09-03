@@ -1,6 +1,7 @@
-# AWP UI
+# Arthera Whitepaper UI
 
-Contract: https://github.com/w3hc/awp-contracts
+- Web app: https://whitepaper.arthera.net/
+- Contract: https://github.com/w3hc/awp-contracts
 
 ## Install
 
