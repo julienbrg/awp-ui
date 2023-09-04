@@ -27,9 +27,6 @@ export function Footer(props: Props) {
         <LinkComponent href={`https://t.me/artherachain`}>
           <FaTelegram />
         </LinkComponent>
-        <LinkComponent href={`https://discord.gg/arthera`}>
-          <FaDiscord />
-        </LinkComponent>
       </Flex>
     </Flex>
   )
