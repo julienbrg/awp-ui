@@ -1,4 +1,4 @@
-# Arthera Whitepaper UI
+# Arthera White Paper UI
 
 - Web app: https://whitepaper.arthera.net/
 - Contract: https://github.com/w3hc/awp-contracts
