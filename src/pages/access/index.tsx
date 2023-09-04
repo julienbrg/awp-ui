@@ -63,7 +63,7 @@ export default function Home() {
       const message = new SiweMessage({
         domain: window.location.host,
         address,
-        statement: `Sign this message to prove you're the owner of Arthera Whitepaper NFT.`,
+        statement: `Sign this message to prove you're the owner of Arthera White Paper NFT.`,
         uri: window.location.origin,
         version: '1',
         chainId,
@@ -95,7 +95,7 @@ export default function Home() {
       toast({
         title: 'Verified ✅',
         position: 'top',
-        description: 'We managed to authenticate the Witepaper NFT ownership in the most official manner. Dive in and savor your reading!',
+        description: 'We managed to authenticate the White Paper NFT ownership in the most official manner. Dive in and savor your reading!',
         status: 'success',
         variant: 'subtle',
         duration: 10000,
@@ -106,7 +106,7 @@ export default function Home() {
       toast({
         title: 'Oh no!',
         position: 'bottom',
-        description: "You don't own the Witepaper NFT. Sorry for that.",
+        description: "You don't own the White Paper NFT. Sorry for that.",
         status: 'error',
         variant: 'subtle',
         duration: 10000,
@@ -165,7 +165,7 @@ export default function Home() {
         ) : (
           <>
             <Text fontSize="20px" mb={3}>
-              If you&apos;re the owner of the Whitepaper NFT, please click on the &apos;Reveal&apos; button.
+              If you&apos;re the owner of the White Paper NFT, please click on the &apos;Reveal&apos; button.
             </Text>
             <br />
             <Text fontSize="20px" mb={3}>
