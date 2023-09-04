@@ -1,4 +1,4 @@
-export const NFT_CONTRACT_ADDRESS = '0x1Fb969e4dBcbF8D9844271344cE74FCD239bA164'
+export const NFT_CONTRACT_ADDRESS = '0xf14D471f25df3E4A28515703D978A87247f1018b'
 export const NFT_CONTRACT_ABI = <const>[
   {
     inputs: [
@@ -230,6 +230,25 @@ export const NFT_CONTRACT_ABI = <const>[
         internalType: 'bytes32',
         name: '',
         type: 'bytes32',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'address',
+        name: '',
+        type: 'address',
+      },
+    ],
+    name: 'alreadyMinted',
+    outputs: [
+      {
+        internalType: 'bool',
+        name: '',
+        type: 'bool',
       },
     ],
     stateMutability: 'view',
