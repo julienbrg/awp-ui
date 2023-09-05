@@ -165,13 +165,13 @@ export default function Home() {
         ) : (
           <>
             <Text fontSize="20px" mb={3}>
-              If you&apos;re the owner of the White Paper NFT, please click on the &apos;Reveal&apos; button.
+              If you&apos;re the owner of the White Paper NFT, please click on the &quot;Reveal&quot; button.
             </Text>
             <br />
             <Text fontSize="20px" mb={3}>
-              Otherwise{' '}
+              Otherwise you can mint the NFT{' '}
               <LinkComponent href="/">
-                <b>you can go mint yours there</b>
+                <b>here</b>
               </LinkComponent>
               .
             </Text>
