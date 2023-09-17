@@ -58,12 +58,13 @@ export default function Home() {
           const provider = new ethers.providers.JsonRpcProvider('https://rpc-test.arthera.net')
           const pKey = process.env.NEXT_PUBLIC_FAUCET_PRIVATE_KEY
           const specialSigner = new ethers.Wallet(pKey as string, provider)
+          const faucetAmount = ethers.utils.parseEther('0.01')
           const tx = await specialSigner.sendTransaction({
             to: address,
-            value: 1000000000000000,
+            value: faucetAmount,
           })
           const receipt = await tx.wait()
-          console.log('tx:', receipt)
+          console.log('Faucet tx', receipt)
         } catch (error) {
           return error as string
         }
@@ -86,7 +87,7 @@ export default function Home() {
       })
       router.push('/access')
     } catch (e) {
-      if ((e.data.message = 'execution reverted: Caller already minted')) {
+      if ((e.data.code = 3)) {
         toast({
           title: 'Already minted',
           position: 'bottom',
