@@ -19,11 +19,12 @@ export function Header(props: Props) {
           {SITE_NAME}
         </Heading>
       </LinkComponent>
+
       <Spacer />
-      Due to a recent security alert, the usage of this app is paused until further notice. Thanks for your understanding.
+
       <Flex alignItems="center" gap={4}>
-        {/* <ConnectKitButton /> */}
-        {/* <ThemeSwitcher /> */}
+        <ConnectKitButton />
+        <ThemeSwitcher />
       </Flex>
     </Flex>
   )
