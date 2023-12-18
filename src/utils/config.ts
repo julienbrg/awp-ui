@@ -1,5 +1,5 @@
 import { ThemingProps } from '@chakra-ui/react'
-import { Chain } from '@wagmi/chains'
+import { Chain } from '@wagmi/core'
 
 export const SITE_NAME = 'Arthera White Paper'
 export const SITE_DESCRIPTION = 'Web3 is entering a new era.'
@@ -30,10 +30,9 @@ export const artheraTestnet: Chain = {
     etherscan: { name: 'Arthera Testnet Explorer', url: 'https://explorer-test.arthera.net' },
     default: { name: 'Arthera Testnet Explorer', url: 'https://explorer-test.arthera.net' },
   },
-}
+} as const satisfies Chain
 
 export const ETH_CHAINS = [artheraTestnet]
-export const alchemyId = process.env.NEXT_PUBLIC_ARBITRUM_ALCHEMY_ID
 
 export const SERVER_SESSION_SETTINGS = {
   cookieName: SITE_NAME,

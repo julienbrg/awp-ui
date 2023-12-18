@@ -5,19 +5,41 @@
 
 ## Install
 
-```sh
-npm i
+```bash
+pnpm install
 ```
 
 ## Run
 
+Create a `.env` on the model of `.env.template`:
+
 ```sh
-npm run dev
+cp .env.template .env
 ```
+
+Add your own keys in your `.env` file, then:
+
+```bash
+pnpm dev
+```
+
+## Build
+
+```bash
+pnpm build
+```
+
+## Arthera faucet
+
+You can get a handful of Testnet AA, the native currency of Arthera at [https://faucet.arthera.net/](https://faucet.arthera.net/).
+
+## Gitcoin passport
+
+If you want to use Gitcoin Passport, uncomment line 26 in the `components/layout/Header.tsx` file.
 
 ## Support
 
-You can contact me via [Element](https://matrix.to/#/@julienbrg:matrix.org), [Telegram](https://t.me/julienbrg), [Twitter](https://twitter.com/julienbrg), [Discord](https://discord.gg/bHKJV3NWUQ), or [LinkedIn](https://www.linkedin.com/in/julienberanger/).
+You can contact me via [Element](https://matrix.to/#/@julienbrg:matrix.org), [Telegram](https://t.me/julienbrg), [Twitter](https://twitter.com/julienbrg), [Discord](https://discord.gg/uSxzJp3J76), or [LinkedIn](https://www.linkedin.com/in/julienberanger/).
 
 ## License
 

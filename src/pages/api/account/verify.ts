@@ -7,8 +7,8 @@ import { NFT_CONTRACT_ADDRESS, NFT_CONTRACT_ABI } from '../../../lib/consts'
 export default withSessionRoute(async function handler(req: NextApiRequest, res: NextApiResponse) {
   console.log(req.method, '/api/account/verify', req.session)
 
-  const verifyNftOwnership = async (addr) => {
-    const provider = new ethers.providers.JsonRpcProvider('https://rpc-test.arthera.net')
+  const verifyNftOwnership = async (addr: any) => {
+    const provider = new ethers.JsonRpcProvider('https://rpc-test.arthera.net')
     const nft = new ethers.Contract(NFT_CONTRACT_ADDRESS, NFT_CONTRACT_ABI, provider)
     const nftBal = await nft.balanceOf(addr)
     console.log('nftBal:', nftBal)
