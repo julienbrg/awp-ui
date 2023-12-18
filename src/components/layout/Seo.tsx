@@ -1,5 +1,5 @@
 import React from 'react'
-import { SITE_DESCRIPTION, SITE_NAME, SITE_URL, SOCIAL_TWITTER } from '../../utils/config'
+import { SITE_DESCRIPTION, SITE_NAME, SITE_URL, SOCIAL_TWITTER } from 'utils/config'
 import { DefaultSeo } from 'next-seo'
 
 export function Seo() {
@@ -9,18 +9,18 @@ export function Seo() {
     <DefaultSeo
       title={SITE_NAME}
       defaultTitle={SITE_NAME}
-      titleTemplate={`${SITE_NAME}`}
+      titleTemplate={`%s | ${SITE_NAME}`}
       description={SITE_DESCRIPTION}
-      defaultOpenGraphImageWidth={1200}
-      defaultOpenGraphImageHeight={630}
+      defaultOpenGraphImageWidth={762}
+      defaultOpenGraphImageHeight={708}
       openGraph={{
         type: 'website',
         siteName: SITE_NAME,
         url: origin,
         images: [
           {
-            url: `https://bafybeidpfl2bdtt3xnedxdnxp7zmqb75gan2d45qiqlbbm5erdiiqyw5uq.ipfs.w3s.link/Arthera-White-Paper-NFT.png`,
-            alt: `arthera-wp-image`,
+            url: `${origin}/lode-runner.png`,
+            alt: `${SITE_NAME} Open Graph Image`,
           },
         ],
       }}

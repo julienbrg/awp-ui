@@ -3,12 +3,13 @@ import { Head } from '../../components/layout/Head'
 import { LinkComponent } from '../../components/layout/LinkComponent'
 import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
-import { useFeeData, useSigner, useAccount, useBalance, useNetwork, useSignMessage } from 'wagmi'
+import { useFeeData, useAccount, useBalance, useNetwork, useSignMessage } from 'wagmi'
 import { ethers } from 'ethers'
 import { NFT_CONTRACT_ADDRESS, NFT_CONTRACT_ABI } from '../../lib/consts'
 import { SiweMessage } from 'siwe'
 import { chakra } from '@chakra-ui/react'
 import { motion, isValidMotionProp } from 'framer-motion'
+import { useEthersSigner, useEthersProvider } from '../../hooks/ethersAdapter'
 
 const ChakraBox = chakra(motion.div, {
   shouldForwardProp: isValidMotionProp,
@@ -22,11 +23,11 @@ export default function Home() {
   const [loggedInAddress, setLoggedInAddress] = useState('')
   const [secretContent, setSecretContent] = useState('')
 
+  const signer = useEthersSigner()
   const router = useRouter()
   const toast = useToast()
   const { data } = useFeeData()
   const { address, isConnecting, isDisconnected } = useAccount()
-  const { data: signer } = useSigner()
   const {
     data: bal,
     isError,
