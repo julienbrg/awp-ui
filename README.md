@@ -31,11 +31,7 @@ pnpm build
 
 ## Arthera faucet
 
-You can get a handful of Testnet AA, the native currency of Arthera at [https://faucet.arthera.net/](https://faucet.arthera.net/).
-
-## Gitcoin passport
-
-If you want to use Gitcoin Passport, uncomment line 26 in the `components/layout/Header.tsx` file.
+You can get your subscription on our [subscription faucet](https://faucet.arthera.net/).
 
 ## Support
 
