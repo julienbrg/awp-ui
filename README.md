@@ -1,7 +1,7 @@
 # Arthera White Paper UI
 
 - Web app: https://whitepaper.arthera.net/
-- Contract: https://github.com/w3hc/awp-contracts
+- Contract: https://github.com/artheranet/whitepaper-nft-contracts
 
 ## Install
 
