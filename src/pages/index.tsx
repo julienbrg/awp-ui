@@ -37,7 +37,7 @@ export default function Home() {
   }, [bal?.formatted, bal?.symbol, address])
 
   const verifyNftOwnership = async (addr: any) => {
-    const provider = new ethers.JsonRpcProvider('https://rpc-test.arthera.net')
+    const provider = new ethers.JsonRpcProvider('https://rpc.arthera.net')
     const nft = new ethers.Contract(NFT_CONTRACT_ADDRESS, NFT_CONTRACT_ABI, provider)
     const nftBal = await nft.balanceOf(addr)
     console.log('nftBal', nftBal)
@@ -58,26 +58,7 @@ export default function Home() {
         return
       }
 
-      console.log('bal.formatted', bal.formatted)
-      if (bal.formatted === '0.0') {
-        try {
-          const provider = new ethers.JsonRpcProvider('https://rpc-test.arthera.net')
-          const pKey = process.env.NEXT_PUBLIC_FAUCET_PRIVATE_KEY
-          const specialSigner = new ethers.Wallet(pKey as string, provider)
-          const faucetAmount = ethers.parseEther('0.01')
-          const tx = await specialSigner.sendTransaction({
-            to: address,
-            value: faucetAmount,
-          })
-          const receipt = await tx.wait()
-          console.log('Faucet tx', receipt)
-        } catch (error) {
-          setLoading(false)
-          return error as string
-        }
-      }
-
-      const call = await nft.safeMint()
+      const call = await nft.safeMint(address)
       const nftReceipt = await call.wait(1)
       console.log('tx:', nftReceipt)
       setTxLink(explorerUrl + '/tx/' + nftReceipt.transactionHash)
